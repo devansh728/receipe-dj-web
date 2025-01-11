@@ -1,0 +1,45 @@
+{% extends "base.html" %}
+
+{% block start %}
+
+<div class="container mt-5">
+    <form class="col-6 mx-auto card p-3 shadow-lg" method="post" enctype="multipart/form-data"> 
+        <!-- multiple/form data is for file upload otherwise filw nit get uploaded -->
+        {% csrf_token %}
+        <h2>Register</h2>
+        <hr>
+        <div class="alert alert-success" role="alert">
+        {% if messages %}
+        {% for message in messages %}
+        {{ message }}
+        {% endfor %}
+        {% endif %}
+        </div>
+        <div class="mb-3">
+          <label for="exampleInputEmail1" class="form-label">firstname</label>
+          <input name ="firstname"  type="text" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp">
+            
+        </div>
+        <div class="mb-3">
+          <label for="exampleInputEmail1" class="form-label">lastname</label>
+          <input name ="lastname"  type="text" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp">
+              
+        </div>
+        <div class="mb-3">
+          <label for="exampleInputEmail1" class="form-label">Username</label>
+          <input name ="username"  type="text" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp">
+          
+        </div>
+        <div class="mb-3">
+          <label for="exampleInputPassword1" class="form-label">Password</label>
+          <input name="password" type="password" class="form-control">
+        </div>
+        
+        <button type="submit" class="btn btn-primary">Register</button>
+    </form>
+
+    
+</div>
+
+
+{% endblock %}

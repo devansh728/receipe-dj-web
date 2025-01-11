@@ -1,0 +1,32 @@
+{% extends "base.html" %}
+
+{% block start %}
+
+<div class="container mt-5">
+    <form class="col-6 mx-auto card p-3 shadow-lg" method="post" enctype="multipart/form-data"> 
+        <!-- multiple/form data is for file upload otherwise filw nit get uploaded -->
+        {% csrf_token %}
+        <h2>Update Receipe</h2>
+        <hr>
+        <div class="mb-3">
+          <label for="exampleInputEmail1" class="form-label">Receipe name</label>
+          <input name =" receipe_name " value="{{receipe.receipe_name}}" type="text" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp">
+          <div id="emailHelp" class="form-text">write the name of ur receipe</div>
+        </div>
+        <div class="mb-3">
+          <label for="exampleInputPassword1" class="form-label">Receipe Description</label>
+          <textarea name="receipe_desc" class="form-control">{{receipe.receipe_desc}}</textarea>
+        </div>
+        <div class="mb-3">
+          <label for="exampleInputEmail1" class="form-label">Image</label>
+          <input name="receipe_image" type="file" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp">
+          <div id="emailHelp" class="form-text">Upload the image of ur receipe</div>
+        </div>
+        <button type="submit" class="btn btn-success">Update</button>
+    </form>
+
+    
+</div>
+
+
+{% endblock %}
